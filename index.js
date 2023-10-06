@@ -10,7 +10,7 @@ app.use(express.json());
 app.get("/users", async (request, response) => {
     const users = await User.find()
     
-    return response.json(users);
+    return response.status(200).json(users);
 });
 
 app.post("/users", async (request, reposnse) => {
@@ -18,7 +18,7 @@ app.post("/users", async (request, reposnse) => {
 
     const newUser = await User.create(user)
 
-    return reposnse.json(newUser);
+    return reposnse.status(201).json(newUser);
 });
 
 mongoose.connect("mongodb+srv://jvsobraz:Jv278194*@cluster0.kdc5db7.mongodb.net/")
